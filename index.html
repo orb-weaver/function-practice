@@ -14,6 +14,9 @@
       $(document).ready(function() {
 
         function wordCount(fragment) {
+          if ((fragment === null) || (fragment.length == 0)) {
+            return 0;
+          }
           return fragment.trim().split(/\s+/).length;
         }
         createExample('Word Count', {
@@ -28,6 +31,14 @@
             {
               input: '  ignore  spaces  ',
               output: 2
+            },
+            {
+              input: null,
+              output: 0
+            },
+            {
+              input: '',
+              output: 0
             }
           ]
         });
@@ -61,7 +72,7 @@
           validation: [
             {
               input: 7.23,
-              output: { fives: 1, ones: 2, dimes: 2, pennies: 5 }
+              output: { fives: 1, ones: 2, dimes: 2, pennies: 3 }
             }
           ]
         });
